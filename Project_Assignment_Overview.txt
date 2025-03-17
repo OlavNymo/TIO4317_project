@@ -1,0 +1,78 @@
+
+TIØ4317
+Student 
+project
+4The Assignment – Why?
+• Useful preparation for M.Sc. Thesis• Problem solving in groups• Applied project• Gain experience with relevant applied tools– Data retrieval– Programming– Report writing• Presentation training• Contribute to fellow students trough peer-review
+TIØ4317
+Student 
+project
+5Blackboard
+TIØ4317
+Student 
+project
+6Project timeline1
+Groups 
+allocated1. FebruaryProject 
+proposals 
+approved1. MarchGitHub repo15. AprilPresentations 
+and peer-review~30. AprilFinal 
+report 
+due10. May
+1: Might be adjusted
+TIØ4317
+Student 
+project
+7Groups 
+allocated1. February
+• Students will be randomly allocated to groups• Group size ~3-6• Workload should be uniformly distributed• Group allocations will be posted 1. February
+TIØ4317
+Student 
+project
+8Project 
+proposals 
+approved1. March
+1 A4 page, outlining
+• Research question• Expected code usage• What data and where to retrieve it• Sketch of empirical design• Distribution of work among group 
+members
+Details for 
+submission 
+TBD
+TIØ4317
+Student 
+project
+9GitHub 
+repo15. April
+The GitHub repo will contain
+• Written report• Code– including source code and any 
+supplementary files– programming language should be R• Python also acceptable• Data• Recorded presentation
+Results must 
+be replicable
+TIØ4317
+Student 
+project
+10GitHub 
+repo15. April
+The written report
+• Acceptable file formats:– Jupyter notebook: *. ipynb– Quarto document: *.qmd• Max 10 A4 pages• Section on use of LLMs– How have you used them?– What are your experiences?
+TIØ4317
+Student 
+project
+11Presentations 
+and peer-review~30. April30 min. session
+• Present your work– PowerPoint presentation• Receive peer-review from peer-group– PowerPoint presentation• Discussion
+TIØ4317
+Student 
+project
+12Final 
+report 
+due10. MayFinal report on GitHub
+• Incorporating comments from 
+peer-review Details for 
+submission 
+TBD
+TIØ4317
+Student 
+project
+13Grading (pass/fail)
+• Empirical project (50%)– Quality of written report– Efficency of code work– Presentation• Peer-review (50%)– Quality of written peer-review report1– Usefulness of feedback
