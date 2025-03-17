@@ -2,3 +2,4 @@
 [] Try different orders of ARIMA
 [] Try different seasonalities
 [] Try different parameterizations of GARCH
+[] Fix forecasting dates
