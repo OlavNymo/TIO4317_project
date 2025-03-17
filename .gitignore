@@ -25,12 +25,16 @@ wheels/
 .installed.cfg
 *.egg
 
+#Ignore project proposal, assignment, .txt files
+*.txt
+!requirements.txt
+*.pdf
+
+
 # Jupyter Notebook
 .ipynb_checkpoints
 
 # Data and results
-data/processed/
-results/
 
 # IDE-specific files
 .idea/
