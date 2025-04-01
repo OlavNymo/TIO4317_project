@@ -86,8 +86,7 @@ def train_arima_model(series: pd.Series, order: Tuple[int, int, int],
     Train an ARIMA model with specified parameters
     """
     # Create and fit model
-    # Note: We're not trying to force a frequency on the DatetimeIndex anymore
-    # statsmodels will work with the data as is, but will generate warnings
+
     if seasonal_order:
         model = SARIMAX(series, order=order, seasonal_order=seasonal_order)
     else:
