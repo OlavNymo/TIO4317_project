@@ -29,6 +29,7 @@ wheels/
 *.txt
 !requirements.txt
 *.pdf
+*.csv
 
 
 # Jupyter Notebook

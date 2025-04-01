@@ -15,16 +15,6 @@ from typing import Tuple, Dict, Any, Optional, List
 def check_stationarity(series: pd.Series) -> Tuple[bool, Dict[str, Any]]:
     """
     Check if a time series is stationary using ADF test
-    
-    Parameters:
-    -----------
-    series : pd.Series
-        Time series to check
-        
-    Returns:
-    --------
-    Tuple[bool, Dict[str, Any]]
-        Boolean indicating stationarity and test results
     """
     from statsmodels.tsa.stattools import adfuller
     
@@ -53,24 +43,6 @@ def find_optimal_arima_params(series: pd.Series, seasonal: bool = False, m: int 
                              max_P: int = 2, max_D: int = 1, max_Q: int = 2) -> Dict[str, Any]:
     """
     Find optimal ARIMA parameters using auto_arima
-    
-    Parameters:
-    -----------
-    series : pd.Series
-        Time series data
-    seasonal : bool, default=False
-        Whether to include seasonal component
-    m : int, default=1
-        The period for seasonal differencing
-    max_p, max_d, max_q : int
-        Maximum values for ARIMA(p,d,q) parameters
-    max_P, max_D, max_Q : int
-        Maximum values for seasonal ARIMA parameters
-        
-    Returns:
-    --------
-    Dict[str, Any]
-        Dictionary with optimal parameters and model summary
     """
     # Find optimal parameters using auto_arima
     model = auto_arima(
@@ -112,20 +84,6 @@ def train_arima_model(series: pd.Series, order: Tuple[int, int, int],
                      seasonal_order: Optional[Tuple[int, int, int, int]] = None) -> Dict[str, Any]:
     """
     Train an ARIMA model with specified parameters
-    
-    Parameters:
-    -----------
-    series : pd.Series
-        Time series data
-    order : Tuple[int, int, int]
-        ARIMA order parameters (p,d,q)
-    seasonal_order : Optional[Tuple[int, int, int, int]], default=None
-        Seasonal order parameters (P,D,Q,s)
-        
-    Returns:
-    --------
-    Dict[str, Any]
-        Dictionary with model and results
     """
     # Create and fit model
     # Note: We're not trying to force a frequency on the DatetimeIndex anymore
@@ -156,25 +114,6 @@ def forecast_arima(model_results: Any, steps: int,
                   forecast_index: Optional[pd.DatetimeIndex] = None) -> Dict[str, Any]:
     """
     Generate forecasts from an ARIMA model
-    
-    Parameters:
-    -----------
-    model_results : Any
-        Fitted ARIMA model results
-    steps : int
-        Number of steps to forecast
-    return_conf_int : bool, default=True
-        Whether to return confidence intervals
-    alpha : float, default=0.05
-        Significance level for confidence intervals
-    forecast_index : Optional[pd.DatetimeIndex], default=None
-        DatetimeIndex to use for the forecast results
-        If None, the forecast will have integer indices
-        
-    Returns:
-    --------
-    Dict[str, Any]
-        Dictionary with forecast results
     """
     # Generate forecast
     forecast = model_results.forecast(steps=steps)
@@ -205,18 +144,6 @@ def forecast_arima(model_results: Any, steps: int,
 def plot_arima_diagnostics(model_results: Any, figsize: Tuple[int, int] = (12, 10)) -> plt.Figure:
     """
     Plot ARIMA model diagnostics
-    
-    Parameters:
-    -----------
-    model_results : Any
-        Fitted ARIMA model results
-    figsize : Tuple[int, int], default=(12, 10)
-        Figure size
-        
-    Returns:
-    --------
-    plt.Figure
-        Matplotlib figure with diagnostic plots
     """
     fig = model_results.plot_diagnostics(figsize=figsize)
     plt.tight_layout()
@@ -226,22 +153,6 @@ def plot_arima_forecast(actual: pd.Series, forecast_results: Dict[str, Any],
                        title: str = 'ARIMA Forecast', figsize: Tuple[int, int] = (12, 6)) -> plt.Figure:
     """
     Plot ARIMA forecast with confidence intervals
-    
-    Parameters:
-    -----------
-    actual : pd.Series
-        Actual time series data
-    forecast_results : Dict[str, Any]
-        Dictionary with forecast results
-    title : str, default='ARIMA Forecast'
-        Plot title
-    figsize : Tuple[int, int], default=(12, 6)
-        Figure size
-        
-    Returns:
-    --------
-    plt.Figure
-        Matplotlib figure with forecast plot
     """
     forecast = forecast_results['forecast']
     lower_ci = forecast_results.get('lower_ci')

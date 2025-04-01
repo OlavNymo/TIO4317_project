@@ -12,16 +12,6 @@ from typing import Optional, Tuple, List, Dict, Any
 def load_sp500_data(file_path: str) -> pd.DataFrame:
     """
     Load S&P 500 data from CSV file and preprocess it
-    
-    Parameters:
-    -----------
-    file_path : str
-        Path to the CSV file containing S&P 500 data
-        
-    Returns:
-    --------
-    pd.DataFrame
-        Preprocessed DataFrame with S&P 500 data
     """
     # Read the data
     df = pd.read_csv(file_path)
@@ -46,18 +36,6 @@ def load_sp500_data(file_path: str) -> pd.DataFrame:
 def calculate_returns(df: pd.DataFrame, column: str = 'Close/Last') -> pd.DataFrame:
     """
     Calculate daily returns based on specified price column
-    
-    Parameters:
-    -----------
-    df : pd.DataFrame
-        DataFrame with price data
-    column : str, default='Close/Last'
-        Column to use for return calculation
-        
-    Returns:
-    --------
-    pd.DataFrame
-        DataFrame with original data and additional 'Returns' column
     """
     df = df.copy()
     df['Returns'] = df[column].pct_change() * 100
@@ -66,18 +44,6 @@ def calculate_returns(df: pd.DataFrame, column: str = 'Close/Last') -> pd.DataFr
 def train_test_split(df: pd.DataFrame, test_size: int = 5) -> Tuple[pd.DataFrame, pd.DataFrame]:
     """
     Split data into training and testing sets
-    
-    Parameters:
-    -----------
-    df : pd.DataFrame
-        DataFrame with price data
-    test_size : int, default=5
-        Number of data points to include in the test set
-        
-    Returns:
-    --------
-    Tuple[pd.DataFrame, pd.DataFrame]
-        Training and testing DataFrames
     """
     train_df = df.iloc[:-test_size].copy()
     test_df = df.iloc[-test_size:].copy()
@@ -87,22 +53,6 @@ def plot_time_series(df: pd.DataFrame, column: str = 'Close/Last', title: str = 
                      figsize: Tuple[int, int] = (12, 6)) -> plt.Figure:
     """
     Create a time series plot
-    
-    Parameters:
-    -----------
-    df : pd.DataFrame
-        DataFrame with time series data
-    column : str, default='Close/Last'
-        Column to plot
-    title : str, default='S&P 500 Index'
-        Plot title
-    figsize : Tuple[int, int], default=(12, 6)
-        Figure size
-        
-    Returns:
-    --------
-    plt.Figure
-        Matplotlib figure object
     """
     fig, ax = plt.subplots(figsize=figsize)
     ax.plot(df.index, df[column])
@@ -116,18 +66,6 @@ def plot_time_series(df: pd.DataFrame, column: str = 'Close/Last', title: str = 
 def calculate_evaluation_metrics(actual: np.ndarray, predicted: np.ndarray) -> Dict[str, float]:
     """
     Calculate evaluation metrics for model performance
-    
-    Parameters:
-    -----------
-    actual : np.ndarray
-        Actual values
-    predicted : np.ndarray
-        Predicted values
-        
-    Returns:
-    --------
-    Dict[str, float]
-        Dictionary with evaluation metrics
     """
     from sklearn.metrics import mean_squared_error, r2_score
     
@@ -150,22 +88,6 @@ def plot_forecast_comparison(actual: pd.Series, forecast_dict: Dict[str, pd.Seri
                              title: str = 'Forecast Comparison', figsize: Tuple[int, int] = (12, 6)) -> plt.Figure:
     """
     Plot comparison of actual values and forecasts from different models
-    
-    Parameters:
-    -----------
-    actual : pd.Series
-        Series with actual values
-    forecast_dict : Dict[str, pd.Series]
-        Dictionary with model names as keys and forecasts as values
-    title : str, default='Forecast Comparison'
-        Plot title
-    figsize : Tuple[int, int], default=(12, 6)
-        Figure size
-        
-    Returns:
-    --------
-    plt.Figure
-        Matplotlib figure object
     """
     fig, ax = plt.subplots(figsize=figsize)
     
@@ -188,19 +110,6 @@ def plot_forecast_comparison(actual: pd.Series, forecast_dict: Dict[str, pd.Seri
 def ensure_frequency(series: pd.Series, freq: str = 'B') -> pd.Series:
     """
     Ensure that a time series has frequency information in its DatetimeIndex
-    
-    Parameters:
-    -----------
-    series : pd.Series
-        Time series data with DatetimeIndex
-    freq : str, default='B'
-        Frequency string to use if inference fails
-        Default is 'B' (business day) for stock market data
-        
-    Returns:
-    --------
-    pd.Series
-        Time series with frequency information in its index
     """
     if not isinstance(series.index, pd.DatetimeIndex):
         raise ValueError("Series index must be a DatetimeIndex")
